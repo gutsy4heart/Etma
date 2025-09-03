@@ -1,36 +1,37 @@
 import { z } from "zod";
 
-export const signUpSchema = z.object({
+// Функция для создания схемы с переводами
+export const createSignUpSchema = (t: (key: string, values?: any) => string) => z.object({
   name: z
     .string()
-    .min(2, "Имя должно содержать минимум 2 символа")
-    .max(50, "Имя не должно превышать 50 символов")
-    .regex(/^[a-zA-Zа-яА-Я\s]+$/, "Имя может содержать только буквы и пробелы"),
+    .min(2, t('auth.validation.name.minLength', { min: 2 }))
+    .max(50, t('auth.validation.name.maxLength', { max: 50 }))
+    .regex(/^[a-zA-Zа-яА-Я\s]+$/, t('auth.validation.name.invalid')),
   
   email: z
     .string()
-    .min(1, "Email обязателен")
-    .email("Введите корректный email адрес"),
+    .min(1, t('auth.validation.email.required'))
+    .email(t('auth.validation.email.invalid')),
   
   password: z
     .string()
-    .min(8, "Пароль должен содержать минимум 8 символов")
-    .max(100, "Пароль не должен превышать 100 символов")
+    .min(8, t('auth.validation.password.minLength', { min: 8 }))
+    .max(100, t('auth.validation.password.maxLength', { max: 100 }))
     .regex(
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/,
-      "Пароль должен содержать минимум одну строчную букву, одну заглавную букву и одну цифру"
+      t('auth.validation.password.invalid')
     ),
   
   confirmPassword: z
     .string()
-    .min(1, "Подтверждение пароля обязательно"),
+    .min(1, t('auth.validation.confirmPassword.required')),
   
   terms: z
     .boolean()
-    .refine((val) => val === true, "Необходимо принять условия использования")
+    .refine((val) => val === true, t('auth.validation.terms.required'))
 }).refine((data) => data.password === data.confirmPassword, {
-  message: "Пароли не совпадают",
+  message: t('auth.validation.confirmPassword.mismatch'),
   path: ["confirmPassword"],
 });
 
-export type SignUpFormData = z.infer<typeof signUpSchema>;
+export type SignUpFormData = z.infer<ReturnType<typeof createSignUpSchema>>;

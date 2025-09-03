@@ -6,14 +6,17 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { signUpSchema, type SignUpFormData } from "@/lib/validations/auth";
+import { createSignUpSchema, type SignUpFormData } from "@/lib/validations/auth";
 import { Eye, EyeOff, Github } from "lucide-react";
 import Link from "next/link";
+import { useTranslations } from 'next-intl';
 
 export function SignUpForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const t = useTranslations('auth.signUp');
+  const tValidation = useTranslations();
 
   const {
     register,
@@ -21,7 +24,7 @@ export function SignUpForm() {
     formState: { errors },
     reset,
   } = useForm<SignUpFormData>({
-    resolver: zodResolver(signUpSchema),
+    resolver: zodResolver(createSignUpSchema(tValidation)),
     defaultValues: {
       name: "",
       email: "",
@@ -42,10 +45,10 @@ export function SignUpForm() {
       
       // После успешной регистрации
       reset();
-      alert("Регистрация прошла успешно!");
+      alert(t('successMessage'));
     } catch (error) {
       console.error("Registration error:", error);
-      alert("Произошла ошибка при регистрации");
+      alert(t('errorMessage'));
     } finally {
       setIsLoading(false);
     }
@@ -54,20 +57,20 @@ export function SignUpForm() {
   return (
     <div className="w-full max-w-md space-y-6">
       <div className="text-center">
-        <h1 className="text-4xl font-bold mb-2">Создать аккаунт</h1>
-        <p className="text-gray-600">Зарегистрируйтесь, чтобы начать</p>
+        <h1 className="text-4xl font-bold mb-2">{t('title')}</h1>
+        <p className="text-gray-600">{t('subtitle')}</p>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         {/* Имя */}
         <div className="space-y-2">
           <Label htmlFor="name">
-            Имя
+            {t('name')}
           </Label>
           <Input
             id="name"
             type="text"
-            placeholder="Введите ваше имя"
+            placeholder={t('namePlaceholder')}
             {...register("name")}
             className={errors.name ? "border-red-500" : ""}
           />
@@ -79,12 +82,12 @@ export function SignUpForm() {
         {/* Email */}
         <div className="space-y-2">
           <Label htmlFor="email">
-            Email
+            {t('email')}
           </Label>
           <Input
             id="email"
             type="email"
-            placeholder="Введите ваш email"
+            placeholder={t('emailPlaceholder')}
             {...register("email")}
             className={errors.email ? "border-red-500" : ""}
           />
@@ -96,13 +99,13 @@ export function SignUpForm() {
         {/* Пароль */}
         <div className="space-y-2">
           <Label htmlFor="password">
-            Пароль
+            {t('password')}
           </Label>
           <div className="relative">
             <Input
               id="password"
               type={showPassword ? "text" : "password"}
-              placeholder="Введите пароль"
+              placeholder={t('passwordPlaceholder')}
               {...register("password")}
               className={errors.password ? "border-red-500 pr-10" : "pr-10"}
             />
@@ -122,13 +125,13 @@ export function SignUpForm() {
         {/* Подтверждение пароля */}
         <div className="space-y-2">
           <Label htmlFor="confirmPassword">
-            Подтвердите пароль
+            {t('confirmPassword')}
           </Label>
           <div className="relative">
             <Input
               id="confirmPassword"
               type={showConfirmPassword ? "text" : "password"}
-              placeholder="Подтвердите пароль"
+              placeholder={t('confirmPasswordPlaceholder')}
               {...register("confirmPassword")}
               className={errors.confirmPassword ? "border-red-500 pr-10" : "pr-10"}
             />
@@ -155,13 +158,13 @@ export function SignUpForm() {
               className="rounded border-gray-300"
             />
             <label htmlFor="terms" className="text-sm text-gray-600">
-              Я согласен с{" "}
+              {t('terms')}{' '}
               <Link href="/terms" className="text-blue-600 hover:underline">
-                условиями использования
-              </Link>{" "}
-              и{" "}
+                {t('termsLink')}
+              </Link>{' '}
+              {t('and')}{' '}
               <Link href="/privacy" className="text-blue-600 hover:underline">
-                политикой конфиденциальности
+                {t('privacyLink')}
               </Link>
             </label>
           </div>
@@ -176,7 +179,7 @@ export function SignUpForm() {
           className="w-full"
           disabled={isLoading}
         >
-          {isLoading ? "Регистрация..." : "Создать аккаунт"}
+          {isLoading ? t('submitLoading') : t('submit')}
         </Button>
       </form>
 
@@ -186,7 +189,7 @@ export function SignUpForm() {
           <span className="w-full border-t" />
         </div>
         <div className="relative flex justify-center text-xs uppercase">
-          <span className="bg-white px-2 text-gray-500">Или</span>
+          <span className="bg-white px-2 text-gray-500">{t('or')}</span>
         </div>
       </div>
 
@@ -200,15 +203,15 @@ export function SignUpForm() {
         }}
       >
         <Github className="mr-2 h-5 w-5" />
-        Продолжить с GitHub
+        {t('githubButton')}
       </Button>
 
       {/* Ссылка на вход */}
       <div className="text-center">
         <p className="text-sm text-gray-600">
-          Уже есть аккаунт?{" "}
+          {t('alreadyHaveAccount')}{" "}
           <Link href="/auth/login" className="text-blue-600 hover:underline">
-            Войти
+            {t('signIn')}
           </Link>
         </p>
       </div>
