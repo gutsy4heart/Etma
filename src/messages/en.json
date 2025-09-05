@@ -1,86 +1,20 @@
-{
-  "auth": {
-    "signUp": {
-      "title": "Create Account",
-      "subtitle": "Sign up to get started",
-      "name": "Name",
-      "namePlaceholder": "Enter your name",
-      "email": "Email",
-      "emailPlaceholder": "Enter your email",
-      "password": "Password",
-      "passwordPlaceholder": "Enter password",
-      "confirmPassword": "Confirm Password",
-      "confirmPasswordPlaceholder": "Confirm password",
-      "terms": "I agree to the",
-      "and": "and",
-      "termsLink": "Terms of Service",
-      "privacyLink": "Privacy Policy",
-      "submit": "Create Account",
-      "submitLoading": "Signing up...",
-      "githubButton": "Continue with GitHub",
-      "or": "Or",
-      "alreadyHaveAccount": "Already have an account?",
-      "signIn": "Sign In",
-      "successMessage": "Registration successful!",
-      "errorMessage": "An error occurred during registration"
-    },
-    "signIn": {
-      "title": "Welcome Back",
-      "subtitle": "Sign in to your account",
-      "email": "Email",
-      "emailPlaceholder": "Enter your email",
-      "password": "Password",
-      "passwordPlaceholder": "Enter password",
-      "submit": "Sign In",
-      "submitLoading": "Signing in...",
-      "githubButton": "Continue with GitHub",
-      "or": "Or",
-      "dontHaveAccount": "Don't have an account?",
-      "signUp": "Create Account"
-    },
-    "validation": {
-      "name": {
-        "required": "Name is required",
-        "minLength": "Name must be at least {min} characters",
-        "maxLength": "Name must not exceed {max} characters",
-        "invalid": "Name can only contain letters and spaces"
-      },
-      "email": {
-        "required": "Email is required",
-        "invalid": "Please enter a valid email address"
-      },
-      "password": {
-        "required": "Password is required",
-        "minLength": "Password must be at least {min} characters",
-        "maxLength": "Password must not exceed {max} characters",
-        "invalid": "Password must contain at least one lowercase letter, one uppercase letter, and one number"
-      },
-      "confirmPassword": {
-        "required": "Password confirmation is required",
-        "mismatch": "Passwords do not match"
-      },
-      "terms": {
-        "required": "You must accept the terms of service"
-      }
-    },
-    "common": {
-      "loading": "Loading...",
-      "welcome": "Welcome, {name}!",
-      "successfullyRegistered": "You are successfully registered and logged in.",
-      "goToHome": "Go to Home"
+    {
+        "navbar": {
+            "suplement": "SUPPLEMENT",
+            "laser": "LASER",
+            "reviews": "REVIEWS",
+            "journal": "JOURNAL",
+            "about": "ABOUT",
+            "help_support": "HELP & SUPPORT",
+            "activate": "ACTIVATE",
+            "account": "ACCOUNT"
+        },
+        "main": {
+            "hero": {
+                "title": "THE FUTURE OF WELLNESS.",
+                "description": "The perfect balance of science, nature and technology. Prepare to look and feel your absolute best.",
+                "suplement": "SUPPLEMENT",
+                "laser": "LASER"
+            }
+        }
     }
-  },
-  "navigation": {
-    "home": "Home",
-    "about": "About",
-    "contact": "Contact",
-    "signIn": "Sign In",
-    "signUp": "Sign Up"
-  },
-  "footer": {
-    "newsletter": "NEWSLETTER",
-    "newsletterDescription": "Subscribe to our newsletter.",
-    "newsletterPlaceholder": "LYMA newsletter",
-    "signUp": "SIGN UP"
-  }
-}

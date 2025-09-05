@@ -4,9 +4,11 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import { PiPinterestLogo } from "react-icons/pi";
-import { footer } from "@/features/service/footer/footer";
 
-export default function Footer() {
+export default async function Footer() {
+  const response = await fetch(process.env.API_HOST + "/api/footer");
+
+  const footer = await response.json();
 
   return (
     <footer className="bg-black text-white py-[96px] mt-[20px]">

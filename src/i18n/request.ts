@@ -1,15 +1,16 @@
-import { getRequestConfig } from 'next-intl/server';
-import { notFound } from 'next/navigation';
-
-// Список поддерживаемых локалей
-export const locales = ['en', 'ru'] as const;
-export type Locale = (typeof locales)[number];
-
-export default getRequestConfig(async ({ locale }) => {
-  // Проверяем, что локаль поддерживается
-  if (!locales.includes(locale as Locale)) notFound();
-
+import {getRequestConfig} from 'next-intl/server';
+import {hasLocale} from 'next-intl';
+import {routing} from './routing';
+ 
+export default getRequestConfig(async ({requestLocale}) => {
+  // Typically corresponds to the `[locale]` segment
+  const requested = await requestLocale;
+  const locale = hasLocale(routing.locales, requested)
+    ? requested
+    : routing.defaultLocale;
+ 
   return {
-    messages: (await import(`../messages/${locale}.json`)).default
+    locale,
+    messages: (await import(`@/messages/${locale}.json`)).default
   };
 });

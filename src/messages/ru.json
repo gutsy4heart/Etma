@@ -1,86 +1,20 @@
 {
-  "auth": {
-    "signUp": {
-      "title": "Создать аккаунт",
-      "subtitle": "Зарегистрируйтесь, чтобы начать",
-      "name": "Имя",
-      "namePlaceholder": "Введите ваше имя",
-      "email": "Email",
-      "emailPlaceholder": "Введите ваш email",
-      "password": "Пароль",
-      "passwordPlaceholder": "Введите пароль",
-      "confirmPassword": "Подтвердите пароль",
-      "confirmPasswordPlaceholder": "Подтвердите пароль",
-      "terms": "Я согласен с",
-      "and": "и",
-      "termsLink": "условиями использования",
-      "privacyLink": "политикой конфиденциальности",
-      "submit": "Создать аккаунт",
-      "submitLoading": "Регистрация...",
-      "githubButton": "Продолжить с GitHub",
-      "or": "Или",
-      "alreadyHaveAccount": "Уже есть аккаунт?",
-      "signIn": "Войти",
-      "successMessage": "Регистрация прошла успешно!",
-      "errorMessage": "Произошла ошибка при регистрации"
+    "navbar": {
+        "suplement": "ПРИРОДНЫЕ ПРИВЛЕКАТЕЛЬНОСТИ",
+        "laser": "ЛАЗЕР",
+        "reviews": "ОТЗЫВЫ",
+        "journal": "ЖУРНАЛ",
+        "about": "О НАС",
+        "help_support": "ПОМОЩЬ И ПОДДЕРЖКА",
+        "activate": "АКТИВАЦИЯ",
+        "account": "АККАУНТ"
     },
-    "signIn": {
-      "title": "Добро пожаловать",
-      "subtitle": "Войдите в свой аккаунт",
-      "email": "Email",
-      "emailPlaceholder": "Введите ваш email",
-      "password": "Пароль",
-      "passwordPlaceholder": "Введите пароль",
-      "submit": "Войти",
-      "submitLoading": "Вход...",
-      "githubButton": "Продолжить с GitHub",
-      "or": "Или",
-      "dontHaveAccount": "Нет аккаунта?",
-      "signUp": "Создать аккаунт"
-    },
-    "validation": {
-      "name": {
-        "required": "Имя обязательно",
-        "minLength": "Имя должно содержать минимум {min} символов",
-        "maxLength": "Имя не должно превышать {max} символов",
-        "invalid": "Имя может содержать только буквы и пробелы"
-      },
-      "email": {
-        "required": "Email обязателен",
-        "invalid": "Введите корректный email адрес"
-      },
-      "password": {
-        "required": "Пароль обязателен",
-        "minLength": "Пароль должен содержать минимум {min} символов",
-        "maxLength": "Пароль не должен превышать {max} символов",
-        "invalid": "Пароль должен содержать минимум одну строчную букву, одну заглавную букву и одну цифру"
-      },
-      "confirmPassword": {
-        "required": "Подтверждение пароля обязательно",
-        "mismatch": "Пароли не совпадают"
-      },
-      "terms": {
-        "required": "Необходимо принять условия использования"
-      }
-    },
-    "common": {
-      "loading": "Загрузка...",
-      "welcome": "Добро пожаловать, {name}!",
-      "successfullyRegistered": "Вы успешно зарегистрированы и вошли в систему.",
-      "goToHome": "Перейти на главную"
+    "main": {
+        "hero": {
+            "title": "БУДУЩЕЕ ЗДОРОВЬЯ.",
+            "description": "Идеальный баланс науки, природы и технологий. Готовьтесь выглядеть и чувствовать себя наилучшим образом.",
+            "suplement": "ПРИРОДНЫЕ ПРИВЛЕКАТЕЛЬНОСТИ",
+            "laser": "ЛАЗЕР"
+        }
     }
-  },
-  "navigation": {
-    "home": "Главная",
-    "about": "О нас",
-    "contact": "Контакты",
-    "signIn": "Войти",
-    "signUp": "Регистрация"
-  },
-  "footer": {
-    "newsletter": "РАССЫЛКА",
-    "newsletterDescription": "Подпишитесь на нашу рассылку.",
-    "newsletterPlaceholder": "LYMA newsletter",
-    "signUp": "ПОДПИСАТЬСЯ"
-  }
 }
