@@ -10,25 +10,26 @@ async function up() {
                 email: "john.doe@example.com",
                 password: "password",
                 role: "user",
-                verified: true
-                
+                verified: true,
+                isActive: true
             },
             {
                 name: "Jane Doe",
                 email: "jane.doe@example.com",
                 password: "password",
                 role: "user",
-                verified: true
+                verified: true,
+                isActive: true
             },
             {
                 name: "Jahangir",
                 email: "jeka@mail.com",
                 password: "password",
                 role: "user",
-                verified: true
+                verified: true,
+                isActive: true
             }
         ],
-
         skipDuplicates: true
     })
 }

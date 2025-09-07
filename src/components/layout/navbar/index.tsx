@@ -70,6 +70,13 @@ export default function Navbar() {
                 asChild
                 className={navigationMenuTriggerStyle()}
               >
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink
+                asChild
+                className={navigationMenuTriggerStyle()}
+              >
                 <Link
                   href="/journal"
                   className="text-[10px] tracking-[1.68px] text-black/30"

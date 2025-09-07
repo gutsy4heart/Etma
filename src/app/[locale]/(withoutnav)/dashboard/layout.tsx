@@ -48,6 +48,12 @@ export default function DashboardLayout({
             >
               Reviews
             </Link>
+            <Link
+              href="/dashboard/active"
+              className="block px-4 py-2 text-gray-700 rounded-md hover:bg-gray-100 hover:text-gray-900"
+            >
+              Active Items
+            </Link>
             
           </nav>
         </aside>
